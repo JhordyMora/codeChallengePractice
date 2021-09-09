@@ -43,3 +43,10 @@ select * from users natural join follows where date_ > "1999-12-31";
 select users.first_name, count(follows.follow) from users natural join follows group by first_name;
 
 # 6. Question
+select users.first_name, count(follows.follow) from users 
+natural join follows 
+JOIN users u2 ON u2.user_id = follows.follow 
+where users.house != u2.house 
+group by users.first_name; 
+
+# 7. Question
